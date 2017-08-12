@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Example</title>
+        <style type="text/css">
+			html{
+				height:100%;
+			}
+			body{
+				margin:0;
+				padding:0;
+				height:100%;
+				background:url('img/clock/clock.png') center no-repeat;
+			}
+			#clockH{
+				position:absolute;
+				padding-bottom:145px;
+			}
+			#clockM,#clockS{
+				position:absolute;
+				padding-bottom:188px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.stretch.js"></script>
+	</head>
+	<body>
+		<img id="clockH" src="img/clock/clockH.png" />
+		<img id="clockM" src="img/clock/clockM.png" />
+		<img id="clockS" src="img/clock/clockS.png" />
+		<script type="text/javascript">
+			function inCenter(){
+				$('#clockH,#clockM,#clockS').each(function(i,o){
+					$(o).css('left',($(document).width()-$(o).outerWidth())/2);
+					$(o).css('top',($(document).height()-$(o).outerHeight())/2);
+				});
+			}
+			$(window,document).scroll(inCenter);
+			$(window).resize(inCenter);
+			inCenter();
+			
+			function time(){
+				D=new Date();
+				$('#clockS').r(360/60*D.getSeconds());
+				$('#clockM').r(360/60*D.getMinutes());
+				$('#clockH').r(360/12*(D.getHours()%12)+$('#clockM').r()/12);
+				setTimeout(time,1000);
+			}
+			time();
+		</script>
+	</body>
+</html>

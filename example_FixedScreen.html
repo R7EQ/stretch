@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Example</title>
+        <style type="text/css">
+			body{
+				background:#000;
+				margin:0;
+				padding:0;
+			}
+			.FixedScreen{
+				background:url('img/City.gif');
+			}
+			.MyObject{
+				background:url('img/UFO.gif');
+				-webkit-transition:all 3s ease;
+				-moz-transition:all 3s ease;
+				-ms-transition:all 3s ease;
+				-o-transition:all 3s ease;
+				transition:all 3s ease;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.stretch.js"></script>
+	</head>
+	<body>
+		<div class="FixedScreen">
+			<div class="MyObject"></div>
+			<div class="MyObject"></div>
+		</div>
+		<script type="text/javascript">
+			$('html,body').h(100);//stretch background
+			$('.MyObject').x(10).y(10).w(40).h(10);
+			$('.MyObject:last').x(50);
+			$('.MyObject').click(function(){
+				$(this).x(Math.random()*60).y(Math.random()*90);
+			});
+			function FixScreen(){
+				o=$('.FixedScreen');
+				// Fix screen to 16 : 9
+				S=16/9;
+				if($(document).height()/$(document).width()>S){
+					o.w(100).height(o.width()*S);
+				}else{
+					o.h(100).width(o.height()/S);
+				}
+				o.x((100-o.w())/2).y((100-o.h())/2);
+			}
+			$(window,document).scroll(FixScreen);
+			$(window).resize(FixScreen);
+			FixScreen();
+		</script>
+	</body>
+</html>

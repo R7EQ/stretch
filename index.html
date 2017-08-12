@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Stretch objects system</title>
+        <style type="text/css">
+			body{
+				margin:0;
+				padding:20px;
+				font-size:18px;
+			}
+			center{
+				font-size:60px;
+				padding:20px;
+				background:#FC9;
+			}
+			a{
+				display:block;
+				background:#AFD9FA;
+				color:#036;
+				padding:10px;
+				margin:3px;
+				font-size:22px;
+				text-decoration:none;
+			}
+			a:HOVER{
+				background:#69F;
+				color:#000;
+			}
+			a div{
+				font-size:26px;
+				font-weight:bold;
+			}
+			h1{
+				border-top:dashed 1px #888;
+				padding-top:20px;
+			}
+			.Code{
+				padding:3px 8px;
+				background:#DDD;
+			}
+			.Mobile{
+				margin-top:30px;
+				display:inline-block;
+				background:#CCC;
+				-webkit-box-shadow:3px 3px 10px 0 rgba(0,0,0,0.5),inset -5px -5px 10px 0 rgba(0,0,0,0.2),inset 5px 5px 10px 0 rgba(255,255,255,0.5);
+				box-shadow:3px 3px 10px 0 rgba(0,0,0,0.8),inset -5px -5px 10px 0 rgba(0,0,0,0.2),inset 5px 5px 10px 0 rgba(255,255,255,0.5);
+			}
+			.Mobile:before{
+				content:"";
+				display:inline-block;
+				width:80px;
+				height:10px;
+				margin-top:10px;
+				background:#666;
+				border-radius:6px;
+				-o-border-radius:6px;
+				-ms-border-radius:6px;
+				-moz-border-radius:6px;
+				-webkit-border-radius:6px;
+				-webkit-box-shadow:inset 1px 1px 5px 0 rgba(0,0,0,1);
+				box-shadow:inset 1px 1px 5px 0 rgba(0,0,0,1);
+			}
+			.Mobile:after{
+				content:"";
+				display:inline-block;
+				width:60px;
+				height:30px;
+				margin-bottom:15px;
+				border-radius:15px;
+				-o-border-radius:15px;
+				-ms-border-radius:15px;
+				-moz-border-radius:15px;
+				-webkit-border-radius:15px;
+				-webkit-box-shadow:inset 2px 2px 5px 0 rgba(0,0,0,0.3),inset -2px -2px 10px 0 rgba(255,255,255,1);
+				box-shadow:inset 2px 2px 5px 0 rgba(0,0,0,0.3),inset -2px -2px 10px 0 rgba(255,255,255,1);
+			}
+			.Screen{
+				overflow:hidden;
+				margin:15px 10px;
+				width:180px;
+				height:240px;
+				position:relative;
+				background:#09C;
+				font-size:10px;
+			}
+			#MyObject{
+				background:#693;
+				border:solid 1px #FFF;
+				cursor:pointer;
+			}
+			#MyX{
+				border-bottom:dashed 1px #FFF;
+			}
+			#MyY{
+				text-align:right;
+				border-right:dashed 1px #FFF;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.stretch.js"></script>
+	</head>
+	<body>
+		<center>JQuery Stretch System</center>
+		<table>
+			<tr>
+				<td>
+					<h1>What is (JQuery Stretch)</h1>
+					This script is very easy way to set objects that can stretch with a window ..<br />
+					It is good way to set your objects by javascript to stretch with different screens.<br />
+					And it is nice to make a game for mobiles or tablets.
+					<h1>How to use</h1>
+					Use this code for any object.<br />
+					<span class="Code">$(JQuerySelector).x(...).y(...).w(...).h(...)</span>to put that object anywhere and resize it to any size.<br />
+					This is how to put an object in somewhere by code:<span class="Code">$('#MyObject').x(<span>60</span>).y(<span>50</span>).w(<span>25</span>).h(<span>15</span>)</span><br />
+					Click this mobile to change example values.
+				</td>
+				<th>
+					<div class="Mobile">
+						<div class="Screen">
+							<div id="MyObject">Click</div>
+							<div id="MyX"></div>
+							<div id="MyY"></div>
+							<div id="MyW"></div>
+							<div id="MyH"></div>
+						</div>
+					</div>
+				</th>
+			</tr>
+		</table>
+		<h1>Examples</h1>
+		<a href="example.html">
+			<div>Simple example :</div>
+			Short code to test stretched window.<br />
+			[ Resize your window to test it ]
+		</a>
+		<a href="example_FixedScreen.html">
+			<div>Simple example for fixed screen :</div>
+			Short code to test fixed screen.<br />
+			[ Resize your window to test it ]
+		</a>
+		<a href="example_isCrash.html">
+			<div>Simple example for collision:</div>
+			That is how to check if there is a collision between two objects.<br />
+		</a>
+		<a href="rotate.html">
+			<div>Simple rotate:</div>
+			Easy code to rotate an object with this script.<br />
+		</a>
+		<a href="clock.html">
+			<div>Clock:</div>
+			Simple javascript clock.<br />
+		</a>
+		<a href="resize.html">
+			<div>Stretch System:</div>
+			Advanced example to put objects with (stretch system).<br />
+		</a>
+		<a href="resize_FixedScreen.html">
+			<div>Fixed Stretch Screen System :</div>
+			Advanced example to put objects with (stretch system) + (fixed screen).<br />
+		</a>
+		<a href="resize_Compare.html">
+			<div>Compare Stretch Systems :</div>
+			Advanced example to compare (stretch system) with (fixed screen) and (stretch system) without (fixed screen).<br />
+		</a>
+		<a href="input.html">
+			<div>Test codes :</div>
+			Live test with input values only.<br />
+		</a>
+		<script type="text/javascript">
+			$('a').b(10);
+			$('.Code').b(5);
+			$('.Mobile').b(20);
+			function example(){
+				eval($('.Code:last').text());//$('#MyObject').x(60).y(50).w(25).h(15)
+				$('#MyX')
+					.html($('.Code:last span:eq(0)').html()+'%')
+					.x(0)
+					.y(0)
+					.w($('.Code:last span:eq(0)').html())
+					.h($('.Code:last span:eq(1)').html())
+				;
+				$('#MyY')
+					.html($('.Code:last span:eq(1)').html()+'%&nbsp;')
+					.x(0)
+					.y(0)
+					.w($('.Code:last span:eq(0)').html())
+					.h($('.Code:last span:eq(1)').html())
+				;
+				$('#MyW')
+					.html($('.Code:last span:eq(2)').html()+'%')
+					.x($('.Code:last span:eq(0)').html())
+					.y($('.Code:last span:eq(1)').html()-6)
+					.w($('.Code:last span:eq(2)').html())
+				;
+				$('#MyH')
+					.html($('.Code:last span:eq(3)').html()+'%')
+					.x($('.Code:last span:eq(0)').html()-15)
+					.y($('.Code:last span:eq(1)').html())
+					.h($('.Code:last span:eq(3)').html())
+				;
+				$('#MyObject,#MyH').css('line-height',$('#MyObject').height()+'px');
+				$('#MyX').css('line-height',$('#MyX').height()*2-15+'px');
+				$('#MyY').css('line-height',$('#MyX').height()+'px');
+			}
+			example();
+			$('.Mobile').click(function(){
+				$('.Code:last span:eq(0)').html(25+parseInt(Math.random()*40));
+				$('.Code:last span:eq(1)').html(20+parseInt(Math.random()*40));
+				$('.Code:last span:eq(2)').html(20+parseInt(Math.random()*40));
+				$('.Code:last span:eq(3)').html(20+parseInt(Math.random()*40));
+				example();
+			});
+		</script>
+	</body>
+</html>

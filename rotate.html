@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Example</title>
+        <style type="text/css">
+			#Arrow{
+				position:absolute;
+				padding-top:100px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.stretch.js"></script>
+	</head>
+	<body>
+		<img id="Arrow" src="img/Arrow.png" />
+		<script type="text/javascript">
+			function ArrowRotate(x,y){
+				var center_x=$(document).width()/2;
+				var center_y=$(document).height()/2;
+				var radians=Math.atan2(x-center_x,y-center_y);
+				var degree=-radians*180/Math.PI;
+				$('#Arrow').r(degree);
+			}
+			$(document).mousemove(function(e){
+				ArrowRotate(e.pageX,e.pageY);
+			}).bind('touchmove',function(e){
+				e.preventDefault();
+				//T=e.originalEvent.touches[0]||e.originalEvent.changedTouches[0];
+				T=event.touches[0]||event.changedTouches[0];
+				ArrowRotate(T.pageX,T.pageY);
+			});
+			function inCenter(){
+				$('#Arrow').css('left',($(document).width()-$('#Arrow').outerWidth())/2);
+				$('#Arrow').css('top',($(document).height()-$('#Arrow').outerHeight())/2);
+			}
+			$(window,document).scroll(inCenter);
+			$(window).resize(inCenter);
+			inCenter();
+		</script>
+	</body>
+</html>
