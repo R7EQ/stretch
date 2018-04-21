@@ -62,7 +62,6 @@
 	};
 	$.fn.r=function(v){
 		if(typeof v!='undefined'){
-			$('.MyObject').html(~~v);
 			return this.each(function(i,o){
 				$(o)
 					.css('transform','rotate('+v+'deg)')
