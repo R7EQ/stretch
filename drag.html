@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Example</title>
+        <style type="text/css">
+			body{
+				margin:0;
+				padding:0;
+			}
+			.MyObject{
+				cursor:move;
+				background:rgba(0,0,0,0.5);
+				color:#FFF;
+				font-size:12px;
+			}
+			.Draging{
+				background:#CCC;
+				border-top:dashed 1px #800;
+				border-left:dashed 1px #800;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.stretch.js"></script>
+	</head>
+	<body>
+		<div class="MyObject"></div>
+		<script type="text/javascript">
+			function Round(n,x){//Round(1.45175,.1)=1.5
+				if(!x)x=1;
+				x=Math.pow(x,-1);
+				return Math.round(n*x)/x;
+			}
+			
+			$('.MyObject').x(10).y(10).w(25).h(25).draggable().mousedown(function(){
+				$(this).addClass('Draging');
+			}).mousemove(function(){
+				$(this).html(
+					'X = '+Round($(this).x(),.01)+'%<br />Y = '+Round($(this).y(),.01)+'%'
+				);
+			}).mouseup(function(){
+				$(this).removeClass('Draging').mousemove();
+			}).mousemove();
+		</script>
+	</body>
+</html>
